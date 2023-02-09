@@ -1,11 +1,11 @@
-package org.nuos.laboratory.lw7;
+package org.nuos.laboratory.lw8;
 
-import org.nuos.laboratory.lw7.file.FileProcessor;
-import org.nuos.laboratory.lw7.logic.for_enter_data.ForInput;
-import org.nuos.laboratory.lw7.logic.Houses;
-import org.nuos.laboratory.lw7.logic.for_enter_data.Types;
-import org.nuos.laboratory.lw7.menu.Menu;
-import org.nuos.laboratory.lw7.menu.MenuItem;
+import org.nuos.laboratory.lw8.file.FileProcessor;
+import org.nuos.laboratory.lw8.logic.for_enter_data.ForInput;
+import org.nuos.laboratory.lw8.logic.Houses;
+import org.nuos.laboratory.lw8.logic.for_enter_data.Types;
+import org.nuos.laboratory.lw8.menu.Menu;
+import org.nuos.laboratory.lw8.menu.MenuItem;
 
 import java.util.Arrays;
 import java.util.List;

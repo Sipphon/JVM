@@ -1,6 +1,6 @@
-package org.nuos.laboratory.lw7.logic;
+package org.nuos.laboratory.lw8.logic;
 
-import org.nuos.laboratory.lw7.houses.House;
+import org.nuos.laboratory.lw8.houses.House;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package org.nuos.laboratory.lw7.menu;
+package org.nuos.laboratory.lw8.menu;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

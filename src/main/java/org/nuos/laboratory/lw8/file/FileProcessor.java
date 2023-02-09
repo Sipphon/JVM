@@ -1,11 +1,11 @@
-package org.nuos.laboratory.lw7.file;
+package org.nuos.laboratory.lw8.file;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-import org.nuos.laboratory.lw7.houses.House;
-import org.nuos.laboratory.lw7.logic.Houses;
+import org.nuos.laboratory.lw8.houses.House;
+import org.nuos.laboratory.lw8.logic.Houses;
 
 import java.io.File;
 import java.io.IOException;
