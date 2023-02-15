@@ -25,7 +25,7 @@ public class Main {
 
         FileProcessor fileProcessor = new FileProcessor();
 
-        houses.setHouses(fileProcessor.readFile());
+        houses.setApartments(fileProcessor.readFile());
 
         List<MenuItem> menuItems = Arrays.asList(
                 new MenuItem("Exit", () -> System.exit(0)),
@@ -53,23 +53,25 @@ public class Main {
                 }),
                 new MenuItem("List of apartments which have these number of rooms", () -> {
                     int rooms = forInput.enterData("Enter the number of rooms in the apartment:", Types.INTEGER);
-                    houses.findByNumberOfRooms(rooms);
+                    System.out.println(houses.findByNumberOfRooms(rooms));
                 }),
                 new MenuItem("List of apartments which have these number of rooms and locate between these floors", () -> {
                     int rooms = forInput.enterData("Enter the number of rooms in the apartment:", Types.INTEGER);
                     int minFloor = forInput.enterData("Enter the minimal floor of apartment:", Types.INTEGER);
                     int maxFloor = forInput.enterData("Enter the maximal floor of apartment:", Types.INTEGER);
-                    houses.findByNumberOfRooms(rooms, minFloor, maxFloor);
+                    System.out.println(houses.findByNumberOfRooms(rooms, minFloor, maxFloor));
                 }),
                 new MenuItem("List of apartments which have a square more then that one", () -> {
                     double square = forInput.enterData("Enter the square of apartment:", Types.DOUBLE);
-                    houses.filterBySquare(square);
+                    System.out.println( houses.filterBySquare(square));
                 }),
-                new MenuItem("List of apartments which sorted by square", houses::filterBySquare),
+                new MenuItem("List of apartments which sorted by square", ()-> System.out.println(houses.filterBySquare())),
 
-                new MenuItem("List of floors which have an apartments:", houses::ListFloors),
+                new MenuItem("List of floors which have an apartments:",()-> System.out.println(houses.listFloors())),
 
-                new MenuItem("All apartments for each floor", houses::MapFloors));
+                new MenuItem("All apartments for each floor", ()-> System.out.println(houses.mapFloors())));
+
+
         Menu menu = new Menu(menuItems);
         menu.run();
     }

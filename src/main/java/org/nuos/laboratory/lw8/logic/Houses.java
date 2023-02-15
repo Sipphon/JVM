@@ -13,87 +13,84 @@ public class Houses {
     //  D. список всіх квартир, в порядку зростання площі;
     //  E. список поверхів на яких розташовані квартири, у порядку спадання;
     //  F. для кожного поверху визначити список квартир.
-    private List<House> houses;
+    private List<House> apartments;
 
     public Houses() {
-        houses = new ArrayList<>();
+        apartments = new ArrayList<>();
     }
 
-    public List<House> getHouses() {
-        return houses;
+    public List<House> getApartments() {
+        return apartments;
     }
 
-    public void setHouses(List<House> houses) {
-        this.houses = houses;
+    public void setApartments(List<House> apartments) {
+        this.apartments = apartments;
     }
 
     public void addHouse(int numberOfApartments, double square, int floor, int numberOfRooms, String street) {
         House house = new House(numberOfApartments, square, floor, numberOfRooms, street);
-        houses.add(house);
+        apartments.add(house);
     }
 
     public boolean remove(int id) {
-        return houses.removeIf(house -> house.getId() == id);
+        return apartments.removeIf(house -> house.getId() == id);
     }
 
     public boolean removeAll() {
-        houses.clear();
+        apartments.clear();
         return true;
     }
 
-    public void findByNumberOfRooms(int numberOfRooms) {
-        houses.stream()
+    public List<House> findByNumberOfRooms(int numberOfRooms) {
+        return apartments.stream()
                 .filter(house -> house.getNumberOfRooms() == numberOfRooms)
-                .forEach(System.out::println);
+                .toList();
     }
 
-    public void findByNumberOfRooms(int numberOfRooms, int minFloor, int maxFloor) {
-        houses.stream()
-                .filter(house -> house.getNumberOfRooms() == numberOfRooms && house.getFloor()>=minFloor && house.getFloor()<=maxFloor)
-                .forEach(System.out::println);
+    public List<House> findByNumberOfRooms(int numberOfRooms, int minFloor, int maxFloor) {
+       return apartments.stream()
+                .filter(house -> house.getNumberOfRooms() == numberOfRooms && house.getFloor() >= minFloor && house.getFloor() <= maxFloor)
+                .toList();
     }
 
-    public void filterBySquare(double square) {
-        houses.stream()
-                .filter(house -> house.getSquare()>square)
-                .sorted(Comparator.comparingInt(House::getFloor))
-                .sorted(Comparator.comparingDouble(House::getSquare).reversed())
-                .forEach(System.out::println);
+    public List<House> filterBySquare(double square) {
+       return apartments.stream()
+                .filter(house -> house.getSquare() > square)
+                .sorted(Comparator.comparingDouble(House::getSquare).reversed().thenComparingInt(House::getFloor))
+                .toList();
     }
 
-    public void filterBySquare() {
-        houses.stream()
+    public List<House> filterBySquare() {
+       return apartments.stream()
                 .sorted(Comparator.comparingDouble(House::getSquare))
-                .forEach(System.out::println);
+                .toList();
 
     }
 
-    public void MapFloors() {
-        houses.stream()
-                .collect(Collectors.groupingBy(House::getFloor))
-                .forEach((integer, houses1) ->{ System.out.println("Floor: "+ integer);
-                    System.out.println(houses1);});
+    public Map<Integer, List<House>> mapFloors() {
+       return apartments.stream()
+                .collect(Collectors.groupingBy(House::getFloor));
     }
 
-    public void ListFloors() {
-        houses.stream()
+    public List<Integer> listFloors() {
+       return apartments.stream()
                 .map(House::getFloor)
                 .distinct()
                 .sorted(Comparator.reverseOrder())
-                .forEach(o-> System.out.print(o+"\t"));
+                .toList();
     }
 
     public void showAll() {
-        if (houses.isEmpty()) {
+        if (apartments.isEmpty()) {
             return;
         }
-        houses.forEach(System.out::println);
+        apartments.forEach(System.out::println);
     }
 
     @Override
     public String toString() {
         return "Houses{" +
-                "houses=" + houses +
+                "houses=" + apartments +
                 '}';
     }
 }

@@ -22,7 +22,7 @@ public class FileProcessor {
     public void writeFile(Houses houses) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writeValue(new File(filePath), houses.getHouses());
+            objectMapper.writeValue(new File(filePath), houses.getApartments());
 
         } catch (IOException ex) {
 
