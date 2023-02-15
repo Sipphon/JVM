@@ -1,4 +1,4 @@
-package org.nuos.laboratory.lw7.menu;
+package org.nuos.laboratory.lw8.menu;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -66,6 +66,7 @@ public class Menu {
     public boolean quit() {
 
         int choose = 0;
+        System.out.println();
         System.out.println("Do u want continue? 1 - yes, 0 - no");
         Scanner scanner = new Scanner(System.in);
 
