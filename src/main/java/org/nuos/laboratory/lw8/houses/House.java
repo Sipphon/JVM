@@ -1,4 +1,4 @@
-package org.nuos.laboratory.lw7.houses;
+package org.nuos.laboratory.lw8.houses;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
