@@ -1,11 +1,11 @@
-package org.nuos.laboratory.lw7;
+package org.nuos.laboratory.lw8;
 
-import org.nuos.laboratory.lw7.file.FileProcessor;
-import org.nuos.laboratory.lw7.logic.for_enter_data.ForInput;
-import org.nuos.laboratory.lw7.logic.Houses;
-import org.nuos.laboratory.lw7.logic.for_enter_data.Types;
-import org.nuos.laboratory.lw7.menu.Menu;
-import org.nuos.laboratory.lw7.menu.MenuItem;
+import org.nuos.laboratory.lw8.file.FileProcessor;
+import org.nuos.laboratory.lw8.logic.for_enter_data.ForInput;
+import org.nuos.laboratory.lw8.logic.Houses;
+import org.nuos.laboratory.lw8.logic.for_enter_data.Types;
+import org.nuos.laboratory.lw8.menu.Menu;
+import org.nuos.laboratory.lw8.menu.MenuItem;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +25,7 @@ public class Main {
 
         FileProcessor fileProcessor = new FileProcessor();
 
-        houses.setHouses(fileProcessor.readFile());
+        houses.setApartments(fileProcessor.readFile());
 
         List<MenuItem> menuItems = Arrays.asList(
                 new MenuItem("Exit", () -> System.exit(0)),
@@ -63,13 +63,15 @@ public class Main {
                 }),
                 new MenuItem("List of apartments which have a square more then that one", () -> {
                     double square = forInput.enterData("Enter the square of apartment:", Types.DOUBLE);
-                    System.out.println(houses.filterBySquare(square));
+                    System.out.println( houses.filterBySquare(square));
                 }),
-                new MenuItem("List of apartments which sorted by square", () -> System.out.println(houses.filterBySquare())),
+                new MenuItem("List of apartments which sorted by square", ()-> System.out.println(houses.filterBySquare())),
 
-                new MenuItem("List of floors which have an apartments:", () -> System.out.println(houses.ListFloors())),
+                new MenuItem("List of floors which have an apartments:",()-> System.out.println(houses.listFloors())),
 
-                new MenuItem("All apartments for each floor", () -> System.out.println(houses.MapFloors())));
+                new MenuItem("All apartments for each floor", ()-> System.out.println(houses.mapFloors())));
+
+
         Menu menu = new Menu(menuItems);
         menu.run();
     }
