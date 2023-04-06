@@ -27,23 +27,15 @@ public class Main {
         HouseLogic houses = new HouseLogic();
         ForInput forInput = new ForInput();
 
-        try (Connection connection = ConnectToDB.getConnection(); PreparedStatement stmt = connection.prepareStatement("SELECT * FROM  house"); ResultSet rs = stmt.executeQuery()) {
-            while (rs.next()) {
-                House house = new House(rs.getInt("id"),
-                        rs.getInt("numberOfApartment"),
-                        rs.getDouble("square"),
-                        rs.getInt("floor"),
-                        rs.getInt("numberOfRooms"),
-                        rs.getString("street"));
-                houses.add(house);
-            }
-        }
+
 
 
         List<MenuItem> menuItems = Arrays.asList(
-                new MenuItem("Exit", () -> System.exit(0)),
+                new MenuItem("Exit", () -> {
+                    houses.closeConnection();
+                    System.exit(0);}),
 
-                new MenuItem("List of all apartments", houses::showAll),
+                new MenuItem("List of all apartments", ()-> System.out.println(houses.showAllApartments())),
 
                 new MenuItem("List of apartments which have these number of rooms", () -> {
                     int rooms = forInput.enterData("Enter the number of rooms in the apartment:", Types.INTEGER);
