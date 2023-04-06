@@ -1,5 +1,7 @@
 package org.nuos.laboratory.lw9_var6.logic.menu;
 
+import org.nuos.laboratory.lw9_var6.logic.HouseLogic;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -92,7 +94,8 @@ public class Menu {
 
             return true;
         } else {
-
+            HouseLogic houseLogic=new HouseLogic();
+            houseLogic.closeConnection();
             return false;
         }
     }
